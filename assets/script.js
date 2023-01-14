@@ -1,57 +1,89 @@
 // Global variables
-var startBttn = document.querySelector("#start-bttn");
-var timerElement = document.querySelector("#count-down");
-var questionIndex = 0;
+const startBttn = document.getElementById('start-bttn')
+const questionEl =document.getElementById('question-container')
 // list of all questions, choices, and answers
 const questions = [
     {
       title: 'Commonly used data types DO NOT include:',
-      choices: ['strings', 'booleans', 'alerts', 'numbers'],
-      answer: 'alerts',
+      choices: [
+        {text: 'strings', correct: false},
+        {text: 'booleans', correct: false},
+        {text: 'alerts', correct: true},
+        {text: 'numbers', correct: false},
+      ],
     },
     {
       title: 'The condition in an if / else statement is enclosed within ____.',
-      choices: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
-      answer: 'parentheses',
+      choices: [
+        {text: 'quotes', correct: false},
+        {text: 'curly brackets', correct: false},
+        {text: 'parentheses', correct: true},
+        {text: 'square brackets', correct: false}
+      ],
     },
     {
       title: 'Arrays in JavaScript can be used to store ____.',
       choices: [
-        'numbers and strings',
-        'other arrays',
-        'booleans',
-        'all of the above',
+        {text: 'numbers and strings', correct: false},
+        {text: 'other arrays', correct: false},
+        {text: 'booleans', correct: false},
+        {text: 'all of the above', correct: true},
       ],
-      answer: 'all of the above',
     },
     {
       title:
         'String values must be enclosed within ____ when being assigned to variables.',
-      choices: ['commas', 'curly brackets', 'quotes', 'parentheses'],
-      answer: 'quotes',
+      choices: [
+        {text: 'commas', correct: false},
+        {text: 'curly brackets', correct: false},
+        {text: 'quotes', correct: true},
+        {text: 'parentheses', correct: false},
+      ],
     },
     {
       title:
         'A very useful tool used during development and debugging for printing content to the debugger is:',
-      choices: ['JavaScript', 'terminal / bash', 'for loops', 'console.log'],
-      answer: 'console.log',
+      choices: [
+        {text: 'JavaScript', correct: false},
+        {text: 'terminal / bash', correct: false},
+        {text: 'for loops', correct: false},
+        {text: 'console.log', correct: true},
+      ],
     },
   ];
 
-// start button
-var timeLeft = 76;
-function newQuiz() {
-  questionIndex = 0;
+// start game
+startBttn.addEventListener('click', startGame)
+function startGame() {
+  console.log("eheheh");
+  startBttn.style.display = "none";
+  nextQuestion()
+}
+
+// setting the next question
+function nextQuestion() {
+
+}
+
+
+
+
+
+
+
+// var timeLeft = 76;
+// function newQuiz() {
+//   questionIndex = 0;
   
-}
-function startTimer() {
-  var timer = setInterval(function() {
-    timeLeft--;
-    timerElement.textContent = timeLeft + ' seconds left';
-    if(timeLeft === 0) {
-      clearInterval(timer);
-      sendMessage();
-    }
-  }, 1000);
-}
-startBttn.addEventListener("click", startTimer);
+// }
+// function startTimer() {
+//   var timer = setInterval(function() {
+//     timeLeft--;
+//     timerElement.textContent = timeLeft + ' seconds left';
+//     if(timeLeft === 0) {
+//       clearInterval(timer);
+//       sendMessage();
+//     }
+//   }, 1000);
+// }
+// startBttn.addEventListener("click", startTimer);
