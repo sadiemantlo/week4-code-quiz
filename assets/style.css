@@ -22,6 +22,15 @@ body {
     width: 100vw;
 }
 
+.navbar {
+    display: flex;
+    position: relative;
+    bottom: 350px;
+    color: var(--fun2);
+    text-shadow: 2px 2px 1px var(--dark);
+
+}
+
 .container {
     width: 800px;
     max-width: 80%;
