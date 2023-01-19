@@ -9,50 +9,30 @@ var timerEl = document.getElementById('timer')
 const questions = [
     {
       question: 'Commonly used data types DO NOT include:',
-      answer: [
-        {text: 'strings', correct: false},
-        {text: 'booleans', correct: false},
-        {text: 'alerts', correct: true},
-        {text: 'numbers', correct: false},
-      ]
+      answer: ['string', 'booleans', 'alerts', 'numbers'],
+      correct: 'alerts'
     },
     {
       question: 'The condition in an if / else statement is enclosed within ____.',
-      answer: [
-        {text: 'quotes', correct: false},
-        {text: 'curly brackets', correct: false},
-        {text: 'parentheses', correct: true},
-        {text: 'square brackets', correct: false}
-      ]
+      answer: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
+      correct: 'parentheses'
     },
     {
       question: 'Arrays in JavaScript can be used to store ____.',
-      answer: [
-        {text: 'numbers and strings', correct: false},
-        {text: 'other arrays', correct: false},
-        {text: 'booleans', correct: false},
-        {text: 'all of the above', correct: true},
-      ]
+      answer: ['numbers and strings', 'other arrays', 'booleans', 'all of the above'],
+      correct: 'all of the above'
     },
     {
       question:
         'String values must be enclosed within ____ when being assigned to variables.',
-      answer: [
-        {text: 'commas', correct: false},
-        {text: 'curly brackets', correct: false},
-        {text: 'quotes', correct: true},
-        {text: 'parentheses', correct: false},
-      ]
+      answer: ['commas', 'curly brackets', 'quotes', 'parentheses'],
+      correct: 'quotes'
     },
     {
       question:
         'A very useful tool used during development and debugging for printing content to the debugger is:',
-      answer: [
-        {text: 'JavaScript', correct: false},
-        {text: 'terminal / bash', correct: false},
-        {text: 'for loops', correct: false},
-        {text: 'console.log', correct: true},
-      ]
+      answer: ['JavaScript','terminal / bash', 'for loops', 'console.log'],
+      correct: 'console.log'
     },
   ];
 
@@ -92,7 +72,7 @@ var displayQuestion = function() {
   questionEl.innerText = question.question
   question.answer.forEach(answer => {
     const button = document.createElement('button')
-    button.innerText = answer.text
+    button.innerText = answer
     button.classList.add('bttn')
     button.addEventListener('click', selectAnswer)
     answerBttnEl.appendChild(button)
@@ -107,13 +87,20 @@ function resetState() {
 }
 
 // answer buttons 
+var correct = questions.find(element => 'alerts')
+
 function selectAnswer(e) {
   const selectedBttn = e.target 
-  const correct = selectedBttn.dataset.correct
-  Array.from(answerBttnEl.children).forEach(button => {
-    
-  })
-}
+  // Array.from(answerBttnEl.children).forEach(button => {
+  if (selectedBttn === correct) {
+    console.log('finally bitch')
+    nextQuestion(); 
+  } else { 
+    timeLeft - 10;
+    nextQuestion;
+  }
+  }
+
 
 
 
