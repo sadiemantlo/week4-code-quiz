@@ -5,6 +5,7 @@ const questionEl = document.getElementById('questions')
 const answerBttnEl = document.getElementById('answer-bttns')
 var questionIndex = 0
 var timerEl = document.getElementById('timer')
+let shuffledQuestions, currentQuestionIndex
 // list of all questions, choices, and answers
 const questions = [
     {
@@ -41,6 +42,8 @@ startBttn.addEventListener('click', startGame)
 function startGame() {
   // startTimer();
   startBttn.style.display = "none";
+  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0
   nextQuestion();
 }
 
@@ -62,9 +65,9 @@ function startTimer() {
 var question = questions[0]
 function nextQuestion() {
   resetState()
-  displayQuestion(questions.questionIndex)
+  displayQuestion(questions.CurrentQuestionIndex)
     for (i = 0; i < questions.length; i++) {
-
+      currentQuestionIndex++;
     }
 }
 
@@ -87,13 +90,14 @@ function resetState() {
 }
 
 // answer buttons 
-var correct = questions.find(element => 'alerts')
+var correct = questions[questionIndex].correct;
+
 
 function selectAnswer(e) {
   const selectedBttn = e.target 
   // Array.from(answerBttnEl.children).forEach(button => {
   if (selectedBttn === correct) {
-    console.log('finally bitch')
+    console.log('finally bitch');
     nextQuestion(); 
   } else { 
     timeLeft - 10;
